@@ -11,17 +11,17 @@
             <p>地点：<b>沈阳市皇姑区禧道婚礼堂(黄河南大街38号)</b></p>
             <div class="content-inside-bless">
               <input
-                placeholder="写下你的祝福" 
+                placeholder="写下你的婚礼祝福"
                 @keyup.enter="sendBarrage"
                 @focus="isFocused = true"
                 @blur="isFocused = false, hasEntered = false"
                 v-model="wish"
                 ref="wishInput"
               >
-              <p v-if="!wish && isFocused && hasEntered">请输入祝福哦</p>
+<!--              <p v-if="!wish && isFocused">请写下你的婚礼祝福哦</p>-->
               <div>
                 <button @click="sendBarrage">发送祝福弹幕</button>
-                <button @click="closeInvitation">关闭</button>
+<!--                <button @click="closeInvitation">关闭</button>-->
               </div>
             </div>
           </div>
@@ -53,16 +53,16 @@ export default {
     closeInvitation () {
       this.isOpening = false
       setTimeout(() => {
-        this.$emit('onClose')
+        this.$emit('onClose', this.wish)
       }, 660)
     },
     // 发送弹幕
     sendBarrage(){
       this.$nextTick(() => {
         this.hasEntered = true
-        if (!this.wish) {
-          return
-        }
+        // if (!this.wish) {
+        //   return
+        // }
         this.isOpening = false
         this.$refs.wishInput.blur()
         setTimeout(() => {

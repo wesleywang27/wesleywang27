@@ -5,7 +5,7 @@ export default {
 // 给大家表演个写代码吧
 const { 😆, 🤗 } = 💑;
 😆.say('亲爱的，你愿意嫁给我吗❤️');
-🤗.response('我愿意💕️，我还愿意陪你去遍全世界🌏');
+🤗.response('我愿意💕️，我还愿意陪你走遍全世界🌏');
 🤵‍♂️👰‍♀️ = Utils.getMarried(😆, 🤗);
 Utils.generateInvitation(🤵‍♂️👰‍♀️, '我们结婚啦~');
 // 好了好了写完了

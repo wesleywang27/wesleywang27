@@ -23,7 +23,7 @@
       </svg>
     </div>
     <Executions :canExecute="canExecute" @onUpdating="scrollToBottom" @onFinish="canOpen = true"/>
-    <invitation :canOpen="canOpen" @onClose="canOpen = false, hasClosed = true" @sendBarrage="onAfterSending"/>
+    <invitation :canOpen="canOpen" @onClose="onAfterSending" @sendBarrage="onAfterSending"/>
     <Barrage :wish="wish" :canStart="canStart"/>
   </div>
 </template>
@@ -106,6 +106,7 @@
       },
       // 发送弹幕之后
       onAfterSending(wish) {
+        if (wish === '') wish = '恭贺新禧'
         this.wish = wish
         this.canOpen = false
         setTimeout(() => {
