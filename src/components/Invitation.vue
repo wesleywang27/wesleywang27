@@ -6,9 +6,9 @@
           <div class="content-inside">
             <img class="content-inside-photo" src="../images/photo.jpg">
             <p>我们结婚啦！</p>
-            <p><b>Jun & undefined</b></p>
-            <p>时间：invalid date value</p>
-            <p>地点：<b>location can not be found</b></p>
+            <p><b>王得屹 & 张楠鸽</b></p>
+            <p>时间：2021.12.05 星期日</p>
+            <p>地点：<b>沈阳市皇姑区禧道婚礼堂(黄河南大街38号)</b></p>
             <div class="content-inside-bless">
               <input
                 placeholder="写下你的祝福" 

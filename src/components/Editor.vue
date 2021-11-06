@@ -6,7 +6,7 @@
         <a href="javascript:;" class="maximum"></a>
     </header>
     <!-- 日期 -->
-    <p class="code">Last login: <span>{{ startDate }}</span> on ttys001</p>
+    <p class="code">Today login: <span>{{ startDate }}</span> on happiness machine.</p>
     <!--代码编辑区-->
     <pre>
       <code v-html="highlightedCode"></code>
@@ -83,7 +83,7 @@
           // 写代码每一帧的函数
           let step = () => {
             let randomNumber = Math.round(Math.random() * 6)
-            // 摸你打字的随机速度
+            // 模拟打字的随机速度
             if(count % 2 === 0 && randomNumber % 4 === 0){
               this.currentCode = this.code.substring(0, typingCount)
               typingCount++
