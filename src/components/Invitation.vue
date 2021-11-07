@@ -19,7 +19,7 @@
                 v-model="wish"
                 ref="wishInput"
               >
-<!--              <p v-if="!wish && isFocused">请写下你的婚礼祝福哦</p>-->
+              <p v-if="!wish && isFocused">↓写下你的婚礼祝福，点击发送弹幕哦↓</p>
               <div>
                 <button @click="sendBarrage">发送祝福弹幕</button>
                 <button @click="closeInvitation">关闭</button>
@@ -60,11 +60,11 @@ export default {
     // 发送弹幕
     sendBarrage(){
       this.$nextTick(() => {
+        if (!this.wish) {
+          return
+        }
         this.hasEntered = true
-        // if (!this.wish) {
-        //   return
-        // }
-        this.isOpening = false
+        this.isOpening = true
         this.$refs.wishInput.blur()
         setTimeout(() => {
           this.$emit('sendBarrage', this.wish)
@@ -230,7 +230,7 @@ export default {
         .cover-inside-seal{
           position: absolute;
           left: 70%;
-          bottom: 100px;
+          bottom: 160px;
           width: 80px;
           height: 80px;
           margin-left: -40px;
