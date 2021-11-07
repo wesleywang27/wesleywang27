@@ -90,6 +90,7 @@
 <style lang="less">
   .wedding-barrage{
     position: relative;
+    z-index: 4;
     p{
       position: absolute;
       padding: 5px 0;

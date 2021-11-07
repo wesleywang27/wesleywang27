@@ -4,7 +4,7 @@
       <div class="invitation-cover">
         <div class="cover-content" :class="{'invitation-up':isOpening}">
           <div class="content-inside">
-            <img class="content-inside-photo" src="../images/photo.jpg">
+            <img class="content-inside-photo" src="../images/photo.jpg" draggable="false">
             <p>我们结婚啦！</p>
             <p><b>王得屹 & 张楠鸽</b></p>
             <p>时间：2021.12.05 星期日</p>
@@ -19,7 +19,7 @@
                 v-model="wish"
                 ref="wishInput"
               >
-<!--              <p v-if="!wish && isFocused">请写下你的婚礼祝福哦</p>-->
+              <p v-if="!wish && isFocused">↓写下你的婚礼祝福，点击发送弹幕哦↓</p>
               <div>
                 <button @click="sendBarrage">发送祝福弹幕</button>
                 <button @click="closeInvitation">关闭</button>
@@ -60,11 +60,11 @@ export default {
     // 发送弹幕
     sendBarrage(){
       this.$nextTick(() => {
+        if (!this.wish) {
+          return
+        }
         this.hasEntered = true
-        // if (!this.wish) {
-        //   return
-        // }
-        this.isOpening = false
+        this.isOpening = true
         this.$refs.wishInput.blur()
         setTimeout(() => {
           this.$emit('sendBarrage', this.wish)
@@ -123,7 +123,7 @@ export default {
           left: 0;
           width: 100%;
           height: 100%;
-          padding: 10px 20px;
+          padding: 20px 0px;
           transition: transform 0.6s cubic-bezier(0.4, 0, 1, 1);
           -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.4, 0, 1, 1);
           &.invitation-up{
@@ -131,6 +131,10 @@ export default {
             -webkit-transform: translateY(-60px);
           }
           .content-inside{
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
             height: 100%;
             padding: 20px;
             color: #a9895d;
@@ -138,6 +142,7 @@ export default {
             text-align: center;
             overflow: auto;
             .content-inside-photo{
+              user-select: none;
               width: 100%;
               margin-bottom: 10px;
               padding: 5px;
@@ -230,7 +235,7 @@ export default {
         .cover-inside-seal{
           position: absolute;
           left: 70%;
-          bottom: 100px;
+          bottom: 160px;
           width: 80px;
           height: 80px;
           margin-left: -40px;
