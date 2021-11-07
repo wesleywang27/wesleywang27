@@ -6,19 +6,20 @@
           <div class="content-inside">
             <img class="content-inside-photo" src="../images/photo.jpg">
             <p>我们结婚啦！</p>
-            <p><b>Jun & undefined</b></p>
-            <p>时间：invalid date value</p>
-            <p>地点：<b>location can not be found</b></p>
+            <p><b>王得屹 & 张楠鸽</b></p>
+            <p>时间：2021.12.05 星期日</p>
+            <p>地点：<b>沈阳市皇姑区禧道婚礼堂</b></p>
+            <p><b>(黄河南大街38号)</b></p>
             <div class="content-inside-bless">
               <input
-                placeholder="写下你的祝福" 
+                placeholder="写下你的婚礼祝福"
                 @keyup.enter="sendBarrage"
                 @focus="isFocused = true"
                 @blur="isFocused = false, hasEntered = false"
                 v-model="wish"
                 ref="wishInput"
               >
-              <p v-if="!wish && isFocused && hasEntered">请输入祝福哦</p>
+<!--              <p v-if="!wish && isFocused">请写下你的婚礼祝福哦</p>-->
               <div>
                 <button @click="sendBarrage">发送祝福弹幕</button>
                 <button @click="closeInvitation">关闭</button>
@@ -53,16 +54,16 @@ export default {
     closeInvitation () {
       this.isOpening = false
       setTimeout(() => {
-        this.$emit('onClose')
+        this.$emit('onClose', this.wish)
       }, 660)
     },
     // 发送弹幕
     sendBarrage(){
       this.$nextTick(() => {
         this.hasEntered = true
-        if (!this.wish) {
-          return
-        }
+        // if (!this.wish) {
+        //   return
+        // }
         this.isOpening = false
         this.$refs.wishInput.blur()
         setTimeout(() => {
@@ -112,7 +113,7 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #D65047;
+        background-color: #e3362a;
         border-radius: 10px;
         perspective: 500px;
         box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.15);
@@ -195,7 +196,7 @@ export default {
           width: 70%;
           height: 100%;
           border-radius: 10px;
-          background-color: #D65047;
+          background-color: #e3362a;
           box-shadow: 5px 0 10px rgba(0,0,0,0.2);
           z-index: 6;
           transition: transform 0.5s;
@@ -214,7 +215,7 @@ export default {
           width: 40%;
           height: 100%;
           border-radius: 10px;
-          background-color: #D65047;
+          background-color: #e3362a;
           box-shadow: -5px 0 10px rgba(0,0,0,0.2);
           z-index: 5;
           transition: transform 0.5s;
