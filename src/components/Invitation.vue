@@ -123,7 +123,7 @@ export default {
           left: 0;
           width: 100%;
           height: 100%;
-          padding: 20px 0px;
+          padding: 20px 6px;
           transition: transform 0.6s cubic-bezier(0.4, 0, 1, 1);
           -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.4, 0, 1, 1);
           &.invitation-up{
@@ -235,7 +235,7 @@ export default {
         .cover-inside-seal{
           position: absolute;
           left: 70%;
-          bottom: 160px;
+          top: 160px;
           width: 80px;
           height: 80px;
           margin-left: -40px;
