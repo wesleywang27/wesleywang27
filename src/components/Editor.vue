@@ -4,10 +4,13 @@
         <a href="javascript:;"></a>
         <a href="javascript:;" class="minimum"></a>
         <a href="javascript:;" class="maximum"></a>
-        <audio controls ref="audio" src="../audios/keyboard.mp3" loop preload="auto"></audio>
-    </header>
+        </header>
     <!-- 日期 -->
     <p class="code">Today login: <span>{{ startDate }}</span> on happiness machine.</p>
+    <!-- 键盘音效 -->
+    <div >
+      <audio id="audio" :src="require('../audios/keyboard.mp3')"></audio>
+    </div>
     <!--代码编辑区-->
     <pre>
       <code v-html="highlightedCode"></code>
@@ -41,7 +44,7 @@
 
   export default {
     name: 'Editor',
-    components: { Executions, Invitation, Barrage },
+    components: {Executions, Invitation, Barrage },
     data() {
       return {
         startDate: '',
@@ -71,6 +74,17 @@
         const codeWithCursor = `${code}<span style="opacity:${this.isCursorVisible}"> ▍</span>`
         return codeWithCursor
       }
+    },
+    mounted() {
+      // 播放音乐
+      let oAudio = document.querySelector("#audio");
+      oAudio.onended = function() {
+        //播放完毕，重新循环播放
+        oAudio.stop();
+        // oAudio.load();
+        // oAudio.play();
+      };
+      this.audioAutoPlay()
     },
     methods: {
       scrollToBottom() {
@@ -112,6 +126,12 @@
         setTimeout(() => {
           this.canStart = true
         }, 800)
+      },
+      // 自动播放音效
+      audioAutoPlay() {
+        let audio = document.getElementById("audio");
+        audio.play();
+        document.removeEventListener("touchstart", this.audioAutoPlay);
       }
     }
   }
