@@ -4,6 +4,7 @@
         <a href="javascript:;"></a>
         <a href="javascript:;" class="minimum"></a>
         <a href="javascript:;" class="maximum"></a>
+        <audio controls ref="audio" src="../audios/keyboard.mp3" loop preload="auto"></audio>
     </header>
     <!-- 日期 -->
     <p class="code">Today login: <span>{{ startDate }}</span> on happiness machine.</p>
