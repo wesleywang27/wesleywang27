@@ -4,6 +4,10 @@
       <div class="invitation-cover">
         <div class="cover-content" :class="{'invitation-up':isOpening}">
           <div class="content-inside">
+            <!-- 拆信音效 -->
+            <div >
+              <audio id="envelope" :src="require('../audios/envelope.mp3')"></audio>
+            </div>
             <img class="content-inside-photo" src="../images/photo.jpg" draggable="false">
             <p>我们结婚啦！</p>
             <p><b>王得屹 & 张楠鸽</b></p>
@@ -50,6 +54,10 @@ export default {
     // 打开邀请函
     openInvitation(){
       this.isOpening = true
+      // 播放拆信音效
+      let audio = document.getElementById('envelope');
+      audio.play();
+      document.removeEventListener("touchstart", this.audioAutoPlay);
     },
     closeInvitation () {
       this.isOpening = false

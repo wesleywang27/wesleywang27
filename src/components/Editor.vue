@@ -9,7 +9,7 @@
     <p class="code">Today login: <span>{{ startDate }}</span> on happiness machine.</p>
     <!-- 键盘音效 -->
     <div >
-      <audio id="audio" :src="require('../audios/keyboard.mp3')"></audio>
+      <audio id="keyboard" :src="require('../audios/keyboard.mp3')"></audio>
     </div>
     <!--代码编辑区-->
     <pre>
@@ -77,7 +77,7 @@
     },
     mounted() {
       // 播放音乐
-      let oAudio = document.querySelector("#audio");
+      let oAudio = document.querySelector("#keyboard");
       oAudio.onended = function() {
         //播放完毕，重新循环播放
         oAudio.stop();
@@ -127,9 +127,9 @@
           this.canStart = true
         }, 800)
       },
-      // 自动播放音效
+      // 播放音效
       audioAutoPlay() {
-        let audio = document.getElementById("audio");
+        let audio = document.getElementById('keyboard');
         audio.play();
         document.removeEventListener("touchstart", this.audioAutoPlay);
       }
