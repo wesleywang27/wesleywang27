@@ -5,10 +5,9 @@
         <div class="cover-content" :class="{'invitation-up':isOpening}">
           <div class="content-inside">
             <!-- 拆信音效 -->
-            <div >
-              <audio id="envelope" :src="require('../audios/envelope.mp3')"></audio>
-            </div>
-            <img class="content-inside-photo" src="../images/photo.jpg" draggable="false">
+            <audio id="envelope" :src="require('../audios/envelope.mp3')"></audio>
+            <video class="content-inside-photo" id="video" :src="require('../videos/test.mp4')"
+                   controls="true" controlslist="nodownload noplaybackrate" disablePictureInPicture="true"></video>
             <p>我们结婚啦！</p>
             <p><b>王得屹 & 张楠鸽</b></p>
             <p>时间：2021.12.05 星期日</p>
@@ -57,10 +56,14 @@ export default {
       // 播放拆信音效
       let audio = document.getElementById('envelope');
       audio.play();
-      document.removeEventListener("touchstart", this.audioAutoPlay);
+      // 播放视频
+      let video = document.getElementById('video');
+      video.play();
     },
     closeInvitation () {
       this.isOpening = false
+      let video = document.getElementById('video');
+      video.pause();
       setTimeout(() => {
         this.$emit('onClose', this.wish)
       }, 660)
