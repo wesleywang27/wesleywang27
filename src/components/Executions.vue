@@ -19,6 +19,10 @@
       [<span class="time">{{ endExecution.time }}</span>]
       <span class="task">{{ endExecution.name }}</span>
     </p>
+    <!-- 消息音效 -->
+    <div >
+      <audio id="msg" :src="require('../audios/msg.mp3')"></audio>
+    </div>
   </div>
 </template>
 
@@ -65,6 +69,10 @@
         }
         // 执行完命令，开始显示进度条
         await this.successProcessing(1000)
+        // 播放消息音效
+        let audio = document.getElementById('msg');
+        audio.play();
+        document.removeEventListener("touchstart", this.audioAutoPlay);
         // 执行最后一条命令
         await this.progressivelyRun(this.endExecution)
           .then(() => {
