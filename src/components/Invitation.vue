@@ -6,7 +6,7 @@
           <div class="content-inside">
             <!-- 拆信音效 -->
             <audio id="envelope" :src="require('../audios/envelope.mp3')"></audio>
-            <video class="content-inside-photo" id="video" :src="require('../videos/test.mp4')"
+            <video class="content-inside-photo" id="video" :src="video"
                    controls="true" controlslist="nodownload noplaybackrate" disablePictureInPicture="true"></video>
             <p>我们结婚啦！</p>
             <p><b>王得屹 & 张楠鸽</b></p>
@@ -46,7 +46,8 @@ export default {
       isOpening: false,
       wish: '',
       isFocused: false,
-      hasEntered: false
+      hasEntered: false,
+      video: 'https://www.w3schools.com/tags/movie.mp4'
     }
   },
   methods: {
