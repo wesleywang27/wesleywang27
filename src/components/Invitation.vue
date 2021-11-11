@@ -8,7 +8,7 @@
             <audio id="envelope" :src="require('../audios/envelope.mp3')"></audio>
             <iframe class="content-inside-photo" id="video" :src="video"
                     width="100%" height="180"
-                    allowfullscreen="allowfullscreen"
+                    scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"
                     sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
             <p>我们结婚啦！</p>
             <p><b>王得屹 & 张楠鸽</b></p>
@@ -27,7 +27,7 @@
               <p v-if="!wish && isFocused">↓写下你的婚礼祝福，点击发送弹幕哦↓</p>
               <div>
                 <button @click="sendBarrage">发送祝福弹幕</button>
-<!--                <button @click="closeInvitation">关闭</button>-->
+                <button @click="closeInvitation">关闭</button>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@ export default {
       wish: '',
       isFocused: false,
       hasEntered: false,
-      video: 'https://player.bilibili.com/player.html?bvid=BV12T4y1F7w2&page=1&high_quality=1&danmaku=0'
+      video: 'https://player.bilibili.com/player.html?aid=927638046&bvid=BV12T4y1F7w2&cid=252389250&page=1&high_quality=1&danmaku=0'
     }
   },
   methods: {
@@ -65,8 +65,7 @@ export default {
     },
     closeInvitation () {
       this.isOpening = false
-      let video = document.getElementById('video');
-      video.pause();
+      document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
       setTimeout(() => {
         this.$emit('onClose', this.wish)
       }, 660)
