@@ -47,7 +47,7 @@ export default {
       wish: '',
       isFocused: false,
       hasEntered: false,
-      video: 'https://www.w3schools.com/tags/movie.mp4'
+      video: 'http://vjs.zencdn.net/v/oceans.mp4'
     }
   },
   methods: {
