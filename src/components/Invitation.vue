@@ -6,8 +6,9 @@
           <div class="content-inside">
             <!-- 拆信音效 -->
             <audio id="envelope" :src="require('../audios/envelope.mp3')"></audio>
-            <video class="content-inside-photo" id="video" :src="video"
-                   controls="true" controlslist="nodownload noplaybackrate" disablePictureInPicture="true"></video>
+            <iframe class="content-inside-photo" id="video" :src="video" width="100%"
+                    allowfullscreen="allowfullscreen"
+                    sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
             <p>我们结婚啦！</p>
             <p><b>王得屹 & 张楠鸽</b></p>
             <p>时间：2021.12.05 星期日</p>
@@ -47,7 +48,7 @@ export default {
       wish: '',
       isFocused: false,
       hasEntered: false,
-      video: 'https://www.w3schools.com/tags/movie.mp4'
+      video: 'https://xbeibeix.com/api/bilibili/biliplayer/?url=BV1C3411b7pc/'
     }
   },
   methods: {
