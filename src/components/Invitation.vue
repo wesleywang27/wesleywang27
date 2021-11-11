@@ -27,7 +27,7 @@
               <p v-if="!wish && isFocused">↓写下你的婚礼祝福，点击发送弹幕哦↓</p>
               <div>
                 <button @click="sendBarrage">发送祝福弹幕</button>
-                <button @click="closeInvitation">关闭</button>
+<!--                <button @click="closeInvitation">关闭</button>-->
               </div>
             </div>
           </div>
