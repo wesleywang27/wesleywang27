@@ -6,7 +6,8 @@
           <div class="content-inside">
             <!-- 拆信音效 -->
             <audio id="envelope" :src="require('../audios/envelope.mp3')"></audio>
-            <iframe class="content-inside-photo" id="video" :src="video" width="100%"
+            <iframe class="content-inside-photo" id="video" :src="video"
+                    width="100%" height="180"
                     allowfullscreen="allowfullscreen"
                     sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
             <p>我们结婚啦！</p>
@@ -48,7 +49,7 @@ export default {
       wish: '',
       isFocused: false,
       hasEntered: false,
-      video: 'https://xbeibeix.com/api/bilibili/biliplayer/?url=BV1C3411b7pc/'
+      video: 'https://player.bilibili.com/player.html?bvid=BV12T4y1F7w2&page=1&high_quality=1&danmaku=0'
     }
   },
   methods: {
