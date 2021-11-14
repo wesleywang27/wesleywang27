@@ -6,10 +6,8 @@
           <div class="content-inside">
             <!-- 拆信音效 -->
             <audio id="envelope" :src="require('../audios/envelope.mp3')"></audio>
-            <iframe class="content-inside-photo" id="video" :src="video"
-                    width="100%" height="180"
-                    scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"
-                    sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
+            <video class="content-inside-photo" id="video" :src="require('../videos/video.mp4')"
+                   controls="true" controlslist="nodownload noplaybackrate" disablePictureInPicture="true"></video>
             <p>我们结婚啦！</p>
             <p><b>王得屹 & 张楠鸽</b></p>
             <p>时间：2021.12.05 星期日</p>
@@ -48,8 +46,7 @@ export default {
       isOpening: false,
       wish: '',
       isFocused: false,
-      hasEntered: false,
-      video: 'https://player.bilibili.com/player.html?aid=927638046&bvid=BV12T4y1F7w2&cid=252389250&page=1&high_quality=1&danmaku=0'
+      hasEntered: false
     }
   },
   methods: {
@@ -65,7 +62,8 @@ export default {
     },
     closeInvitation () {
       this.isOpening = false
-      document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      let video = document.getElementById('video');
+      video.pause();
       setTimeout(() => {
         this.$emit('onClose', this.wish)
       }, 660)
