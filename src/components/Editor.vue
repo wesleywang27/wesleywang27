@@ -9,7 +9,7 @@
     <p class="code">Today login: <span>{{ startDate }}</span> on happiness machine.</p>
     <!-- 键盘音效 -->
     <div >
-      <audio id="keyboard" :src="require('../audios/keyboard.mp3')"></audio>
+      <audio id="keyboard" :src="keyboard"></audio>
     </div>
     <!--代码编辑区-->
     <pre>
@@ -55,7 +55,8 @@
         canOpen: false,
         wish: '',
         hasClosed: false,
-        canStart: false
+        canStart: false,
+        keyboard: 'https://video-1252695662.cos.ap-beijing.myqcloud.com/keyboard.mp3'
       }
     },
     created() {
