@@ -2,7 +2,7 @@
   <div class="wedding-barrage" ref="barrage" :style="{opacity: canStart ? 1 : 0}">
     <div v-html="codeInStyleTag"></div>
     <p class="code barrage-0" ref="barrageFirst" :style="{transform:'translate('+initialOffset+'px)',top:'10px'}">
-      <span class="mine">{{ wish }}</span>
+      <span v-if="wish" class="mine">{{ wish }}</span>
       <span v-for="(item, index) in filterBarrage(barrages, 0)" :key="index">{{ item }}</span>
     </p>
     <p class="code barrage-1" ref="barrageSecond" :style="{transform:'translate('+initialOffset+'px)',top:'40px'}">
