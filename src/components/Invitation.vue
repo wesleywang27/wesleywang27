@@ -10,8 +10,8 @@
                    controls="true" controlslist="nodownload noplaybackrate" disablePictureInPicture="true"></video>
             <p>我们结婚啦！</p>
             <p><b>王得屹 & 张楠鸽</b></p>
-            <p>时间：2021.12.05 星期日</p>
-            <p>地点：<b>沈阳市皇姑区禧道婚礼堂</b></p>
+            <p>时间：2021.12.05(星期日) 上午10:38</p>
+            <p>地点：<b>沈阳市皇姑区禧道婚礼堂8层曼斯特厅</b></p>
             <p><b>(黄河南大街38号)</b></p>
             <div class="content-inside-bless">
               <input

@@ -80,10 +80,8 @@
       // 播放音乐
       let oAudio = document.querySelector("#keyboard");
       oAudio.onended = function() {
-        //播放完毕，重新循环播放
+        //播放完毕，停止
         oAudio.stop();
-        // oAudio.load();
-        // oAudio.play();
       };
       this.audioAutoPlay()
     },
